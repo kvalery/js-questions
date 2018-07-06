@@ -1,35 +1,38 @@
 "use strict";
 
-function* generateSequence() {
-  yield 1;
-  return 2;
-}
+window.onload = function any_function_name() {
+  function* generateSequence() {
+    yield 1;
+    return 2;
+  }
 
-let generator = generateSequence();
+  let generator = generateSequence();
 
-let first = generator.next();
+  let first = generator.next();
 // console.log(first);
-let two = generator.next();
+  let two = generator.next();
 // console.log(first);
 // console.log(two);
 
+  let data = 1;
 
-
-function* generateTest() {
-  let fn1 = 1;
-  while (true) {
-    console.log('-' + fn1, reset);
-    let reset =  yield fn1++;
+  function* generateTest() {
+    let fn1 = 1;
+    while (true) {
+      data = data + fn1;
+      console.log(window.data)
+      console.log('-' + fn1, '---', data, window);
+      let reset = yield fn1++;
+    }
   }
-}
 
-let test = generateTest();
+  let test = generateTest();
 
-console.log('-----',test.next())
-console.log('-----',test.next())
-console.log('-----',test.next())
-console.log('-----',test.next(true))
-console.log('-----',test.next())
+  console.log('-----', test.next())
+  console.log('-----', test.next())
+  console.log('-----', test.next())
+  console.log('-----', test.next(true))
+  console.log('-----', test.next())
 
 
 // function* fibonacci(){
@@ -56,3 +59,6 @@ console.log('-----',test.next())
 // console.log(sequence.next().value);
 // console.log(sequence.next().value);
 // console.log(sequence.next().value);
+
+
+}
